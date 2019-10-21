@@ -1,0 +1,23 @@
+.footer {
+  background: #212121;
+  height: 8.5rem;
+}
+
+.footer__wrapper {
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.button {
+  display: flex;
+  flex-flow: column;
+  text-decoration: none;
+  color: #b7b7b7;
+  text-align: center;
+}
+
+.footer__img {
+  margin-bottom: .99rem;
+}

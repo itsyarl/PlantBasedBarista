@@ -1,0 +1,15 @@
+.content {
+  height: 33.8rem;
+}
+
+.emptystate {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.emptystate__content {
+  margin-top: 1.5rem;
+  font-size: 1.8rem;
+  color: #9c9c9c;
+}
