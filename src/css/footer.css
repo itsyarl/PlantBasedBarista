@@ -3,21 +3,21 @@
   height: 8.5rem;
 }
 
-.footer__wrapper {
+.menu__items {
   height: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
-.button {
+.menu__item__link {
   display: flex;
   flex-flow: column;
   text-decoration: none;
-  color: #b7b7b7;
+  color: var(--gray);
   text-align: center;
 }
 
-.footer__img {
+.item__link--img {
   margin-bottom: .99rem;
 }
