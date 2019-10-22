@@ -30,6 +30,7 @@
 .price__button__amount {
   color: var(--gray);
   font-size: var(--small);
+  margin-top: .4rem;
 }
 
 .price__button__plus {
@@ -37,4 +38,8 @@
   font-size: var(--regular);
   padding: .8rem 1.2rem;
   border-radius: .4rem;
+}
+
+.prices {
+  padding-bottom: 3rem;
 }

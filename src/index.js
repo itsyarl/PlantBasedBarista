@@ -13,34 +13,29 @@ const commaDigits = num => {
 // haalt coffees uit json
 const getCoffees = data => {
   const coffees = data.coffees;
-  coffees.forEach(coffee => {
-    if (coffee.plantbased === true) {
-      makeButton(coffee);
+  coffees.forEach(data => {
+    if (data.plantbased === true) {
+      makeButton(data);
     }
   });
 };
 
 // maakt button aan
-const makeButton = coffee => {
+const makeButton = data => {
   const $prijsLijst = document.querySelector(`.prices__list`);
   const $li = document.createElement(`li`);
   $li.classList.add(`price`);
-  $li.setAttribute(`data_id`, `${coffee.id}`);
-  $li.innerHTML = opbouw(coffee);
+  $li.setAttribute(`data_id`, `${data.id}`);
+  $li.innerHTML =  `<a class="price__button">
+                      <span class="price__button__wrapper">
+                        <span class="price__button__name">${data.name}</span>
+                        <span class="price__button__amount">&euro; ${commaDigits(data.prices.medium)}</span>
+                      </span>
+                      <span class="price__button__plus">+</span>
+                    </a>`;
   $prijsLijst.appendChild($li);
 };
 
-// returnt de opbouw en vuilt de items in.
-const opbouw = data => {
-  return `
-  <a class="price__button">
-    <span class="price__button__wrapper">
-      <span class="price__button__name">${data.name}</span>
-      <span class="price__button__amount">&euro; ${commaDigits(data.prices.medium)}</span>
-    </span>
-    <span class="price__button__plus">+</span>
-  </a>`;
-};
 
 //  FAILED TRY
 
