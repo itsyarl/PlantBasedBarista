@@ -20,3 +20,31 @@
 .hide {
   display: none;
 }
+
+.order__amount {
+  color: var(--mainColor);
+  margin-right: 1.2rem;
+}
+
+.order {
+  font-size: var(--regular);
+  border-bottom: .1rem var(--gray);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.remove {
+  font-size: var(--regular);
+  color: var(--gray);
+}
+
+.orders {
+  display: flex;
+  flex-flow: column;
+  margin: 3rem;
+}
+
+.order__price {
+  align-self: right;
+}
