@@ -38,6 +38,7 @@
 .remove {
   font-size: var(--regular);
   color: var(--gray);
+  padding: 1rem;
 }
 
 .orders {

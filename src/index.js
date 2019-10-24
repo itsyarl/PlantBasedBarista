@@ -5,7 +5,6 @@ const init = () => {
   getCoffees(data);
   getOrder(data);
   // addItem(data);
-  removeOrder(data);
 };
 
 // begrensd tot twee getallen na comma
@@ -42,24 +41,27 @@ const makeButton = data => {
 const removeOrder = () => {
   const $items = document.querySelectorAll(`.remove`);
   console.log($items);
-  $items.forEach(function($item) {
+  $items.forEach($item => {
     $item.addEventListener(`click`, e => {
       removeItem(e.composedPath()[2]);
-      console.log(e.composedPath()[2]);
+      console.log(e);
     });
   });
 };
 
 const removeItem = e => {
-  const num = e.getAttribute('data_id');
-  // console.log(num);
-  const $item = document.querySelector(`.price:nth-child(${num}n)`);
-  document.removeElement($item);
+  const num = e.getAttribute('id');
+  console.log(num);
+  const $item = document.querySelector(`.order`);
+  console.log($item);
+  $item.remove();
+  console.log($item.remove());
 };
 
 const getOrder = () => {
   const $items = document.querySelectorAll(`.price`);
-  $items.forEach(function($item) {
+  console.log($items);
+  $items.forEach($item => {
     $item.addEventListener(`click`, e => {
       addItem(e.composedPath()[2]);
     });
@@ -74,23 +76,26 @@ const addItem = e => {
   const prijs = document.querySelector(`.price:nth-child(${num}n) .price__button__amount`).innerHTML;
   // console.log(prijs);
   const $order = document.querySelector(`.orders`);
+
   // attribuut word genomen maar heb de naam en prijs er van nodig
   const $li = document.createElement(`li`);
+  $li.setAttribute(`id`, `${num}`);
   $li.classList.add(`order`);
   $li.innerHTML = `<span class="order__name">
                     <span class="order__amount">1x</span> ${naam}
                   </span>
                   <div class="order__wrapper">
                     <span class="order__price">${prijs}</span>
-                    <span class="remove">
+                    <button class="remove">
                       x
-                    </span>
+                    </button>
                   </div>`;
 
   $order.appendChild($li);
   const $item = document.querySelector(`.order`);
   const $list = document.querySelector(`.orders`).contains($item);
   toggleContent($list);
+  removeOrder();
 };
 
 const toggleContent = empty => {
