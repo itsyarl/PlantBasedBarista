@@ -28,7 +28,8 @@
 
 .order {
   font-size: var(--regular);
-  border-bottom: .1rem var(--gray);
+  padding-bottom: 1rem;
+  border-bottom: solid .1rem var(--gray);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -43,8 +44,27 @@
   display: flex;
   flex-flow: column;
   margin: 3rem;
+  height: 16.3rem;
+  overflow: auto;
 }
 
 .order__price {
   align-self: right;
+}
+
+.total__label {
+  font-size: var(--regular);
+  margin: 0 3rem 1rem;
+  font-weight: bold;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+}
+
+.total__price {
+  font-weight: bold;
+  font-size: var(--regular);
+  margin: 0 3rem 1rem;
 }

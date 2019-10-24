@@ -5,6 +5,7 @@ const init = () => {
   getCoffees(data);
   getOrder(data);
   // addItem(data);
+  removeOrder(data);
 };
 
 // begrensd tot twee getallen na comma
@@ -38,6 +39,24 @@ const makeButton = data => {
   $prijsLijst.appendChild($li);
 };
 
+const removeOrder = () => {
+  const $items = document.querySelectorAll(`.remove`);
+  console.log($items);
+  $items.forEach(function($item) {
+    $item.addEventListener(`click`, e => {
+      removeItem(e.composedPath()[2]);
+      console.log(e.composedPath()[2]);
+    });
+  });
+};
+
+const removeItem = e => {
+  const num = e.getAttribute('data_id');
+  // console.log(num);
+  const $item = document.querySelector(`.price:nth-child(${num}n)`);
+  document.removeElement($item);
+};
+
 const getOrder = () => {
   const $items = document.querySelectorAll(`.price`);
   $items.forEach(function($item) {
@@ -49,11 +68,11 @@ const getOrder = () => {
 
 const addItem = e => {
   const num = e.getAttribute('data_id');
-  console.log(num);
+  // console.log(num);
   const naam = document.querySelector(`.price:nth-child(${num}n) .price__button__name`).innerHTML;
-  console.log(naam);
+  // console.log(naam);
   const prijs = document.querySelector(`.price:nth-child(${num}n) .price__button__amount`).innerHTML;
-  console.log(prijs);
+  // console.log(prijs);
   const $order = document.querySelector(`.orders`);
   // attribuut word genomen maar heb de naam en prijs er van nodig
   const $li = document.createElement(`li`);
@@ -63,9 +82,9 @@ const addItem = e => {
                   </span>
                   <div class="order__wrapper">
                     <span class="order__price">${prijs}</span>
-                    <button class="remove">
+                    <span class="remove">
                       x
-                    </button>
+                    </span>
                   </div>`;
 
   $order.appendChild($li);
@@ -77,7 +96,7 @@ const addItem = e => {
 const toggleContent = empty => {
   const $empty = document.querySelector(`.emptystate`);
   const $notEmpty = document.querySelector(`.orders__wrapper`);
-  console.log(empty);
+  // console.log(empty);
   if (empty === true) {
     $empty.classList.add(`hide`);
     $notEmpty.classList.remove(`hide`);
@@ -87,6 +106,7 @@ const toggleContent = empty => {
     $notEmpty.classList.add(`hide`);
   }
 };
+
 
 
 //  FAILED TRY
