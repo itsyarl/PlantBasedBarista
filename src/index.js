@@ -96,6 +96,7 @@ const addItem = e => {
   const $list = document.querySelector(`.orders`).contains($item);
   toggleContent($list);
   removeOrder();
+  totaal();
 };
 
 const toggleContent = empty => {
@@ -112,6 +113,19 @@ const toggleContent = empty => {
   }
 };
 
+const totaal = orders => {
+  const $totaalBedrag = document.querySelector(`.total__price`);
+  let resTotaal = 0;
+  orders.forEach(order => {
+    const str = order.textContent;
+    const res = parseFloat(str.substr(2, 5));
+
+    resTotaal += res;
+
+    console.log(resTotaal);
+    $totaalBedrag.innerHTML = commaDigits(resTotaal);
+  });
+};
 
 
 //  FAILED TRY
