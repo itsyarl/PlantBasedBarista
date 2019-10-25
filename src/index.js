@@ -96,7 +96,8 @@ const addItem = e => {
   const $list = document.querySelector(`.orders`).contains($item);
   toggleContent($list);
   removeOrder();
-  totaal();
+  const $orders = document.querySelectorAll(`.order__price`);
+  totaal($orders);
 };
 
 const toggleContent = empty => {
